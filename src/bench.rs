@@ -15,7 +15,7 @@ pub type Count = u32;
 pub trait Bench {
     fn run(&self, cores: (CoreId, CoreId), clock: &Clock, num_iterations: Count, num_samples: Count) -> Vec<f64>;
     /// Whether the bench on (i,j) is the same as the bench on (j,i)
-    fn is_symmetric(&self) -> bool { true }
+    fn is_symmetric(&self) -> bool { false }
 }
 
 pub fn run_bench(cores: &[CoreId], clock: &Clock, args: &CliArgs, bench: impl Bench) {
